@@ -1,0 +1,59 @@
+.mat-tab-nav-bar--sticky {
+  transition: box-shadow 0.3s ease-out;
+}
+.mat-tab-nav-bar ::ng-deep {
+  position: sticky;
+  top: 0;
+  z-index: 24;
+}
+.mat-tab-nav-bar ::ng-deep .mat-ink-bar {
+  border-radius: 3px 3px 0 0;
+  height: 3px;
+}
+.mat-tab-nav-bar ::ng-deep .mat-tab-link {
+  margin: 0 16px;
+  min-width: 0;
+  padding: 0;
+  text-decoration: none;
+  transition: all 0.2s ease-out;
+}
+.mat-tab-nav-bar ::ng-deep .mat-tab-link:not(.mat-tab-label-active):hover {
+  transform: translateY(-1px);
+}
+.mat-tab-nav-bar ::ng-deep .mat-tab-link:hover, .mat-tab-nav-bar ::ng-deep .mat-tab-label-active {
+  opacity: 1;
+}
+.mat-tab-nav-bar ::ng-deep .mat-tab-link-container {
+  margin: 0 auto;
+  max-width: 960px;
+}
+.mat-tab-nav-bar ::ng-deep .mat-tab-header-pagination {
+  display: none !important;
+}
+.mat-tab-nav-bar ::ng-deep .mat-tab-link-container {
+  overflow: auto;
+}
+.mat-tab-nav-bar ::ng-deep .mat-tab-list {
+  transform: unset !important;
+}
+.mat-toolbar ::ng-deep .mat-toolbar-row {
+  margin: 0 auto;
+  max-width: 960px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.mat-toolbar ::ng-deep .mat-icon-button {
+  transition: all 0.2s ease-out;
+}
+.mat-toolbar ::ng-deep .mat-icon-button:hover {
+  transform: translateY(-2px);
+}
+.outlet-wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}

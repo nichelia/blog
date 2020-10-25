@@ -1,0 +1,78 @@
+ol, li
+{
+  list-style: none;
+}
+
+.container
+{
+  max-width: 1920px;
+  margin: auto;
+}
+
+nav
+{
+  mix-blend-mode: difference;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  pointer-events: none;
+  max-width: 1920px;
+}
+nav .header
+{
+  mix-blend-mode: difference;
+  width: var(--grid_width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.43056vw;
+  padding: 0 calc(var(--grid_gutter)/2);
+  display: flex;
+  justify-content: space-between;
+  color: var(--off-white);
+}
+nav .header li
+{
+  display: inline-block;
+  font-size: 30px;
+  line-height: var(--paragraph-line_height);
+  letter-spacing: var(--paragraph-letter_spacing);
+  pointer-events: auto;
+}
+
+.ne-logo
+{
+  width: 42px;
+  height: 42px;
+}
+
+section
+{
+  width: var(--grid_width);
+  margin: auto;
+  will-change: transform;
+}
+
+.banner
+{
+  width: calc(var(--grid_width) - var(--grid_gutter));
+  justify-content: space-between;
+  padding-top: 6.94444vw;
+  padding-bottom: 1.80556vw;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events:none;
+}
+
+.banner h1
+{
+  font-size: 16.12vw;
+  line-height: var(--h1-line_height);
+  letter-spacing: var(--h1-letter_spacing);
+  text-transform: uppercase;
+  margin-left: -.08em;
+  pointer-events: none;
+  margin: 0px;
+}
