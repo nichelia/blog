@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { DatePipe } from '@angular/common'
 
 @Component({
@@ -7,23 +7,32 @@ import { DatePipe } from '@angular/common'
   styleUrls: ['./home.component.css'],
   providers:[DatePipe]
 })
-export class HomeComponent implements OnInit
+export class HomeComponent implements OnInit, AfterViewInit
 {
   today = "";
+  private animationRequest;
 
-  constructor(public datepipe: DatePipe) { }
+  constructor(private datepipe: DatePipe) { }
 
   ngOnInit(): void
   {
     this.setToday();
   }
 
-  neLogoClasses()
+  ngAfterViewInit(): void
   {
-    let classes = {
-      "ne-logo": true,
-    };
-    return classes;
+    this.animate();
+  }
+
+  ngOnDestroy(): void
+  {
+    cancelAnimationFrame(this.animationRequest);
+  }
+
+  private animate()
+  {
+    this.setToday();
+    this.animationRequest = requestAnimationFrame(this.animate.bind(this));
   }
 
   setToday()
