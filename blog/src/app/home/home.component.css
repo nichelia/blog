@@ -39,6 +39,12 @@ nav .header li
   pointer-events: auto;
 }
 
+.blog-logo
+{
+  width: 42px;
+  height: 42px;
+}
+
 .ne-logo
 {
   width: 42px;
