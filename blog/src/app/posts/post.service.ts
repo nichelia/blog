@@ -11,10 +11,12 @@ import { Post } from './post';
 export class PostService {
   private postsCollection: AngularFirestoreCollection<Post>;
   private postDocument: AngularFirestoreDocument<Post>;
+  private _limit: number = 13;
 
   constructor(private afs: AngularFirestore) {
     this.postsCollection = this.afs.collection<Post>('posts', (ref) =>
       ref.orderBy('datePublished', 'desc')
+         .limit(this._limit)
     );
   }
 

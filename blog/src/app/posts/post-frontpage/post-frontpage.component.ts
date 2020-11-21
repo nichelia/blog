@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { PaginationService } from '@shared/pagination/pagination.service';
+import { PostService } from '../post.service'
 import { Post } from '../post';
 
 @Component({
@@ -12,13 +13,9 @@ import { Post } from '../post';
 export class PostFrontpageComponent implements OnInit {
   posts: Observable<Post[]>;
 
-  constructor(private paginationService: PaginationService) {}
+  constructor(private postService: PostService, private paginationService: PaginationService) {}
 
   ngOnInit() {
-    if (!this.paginationService.data)
-    {
-      this.paginationService.init('posts', 'datePublished');
-    }
-    this.posts = this.paginationService.data;
+    this.posts = this.postService.getPosts();
   }
 }
