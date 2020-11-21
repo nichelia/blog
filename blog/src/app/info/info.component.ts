@@ -8,7 +8,7 @@ import { VERSION } from '../../environments/version';
 })
 export class InfoComponent implements OnInit
 {
-  private github_link = "https://github.com/nichelia/todo"
+  private github_link = "https://github.com/nichelia/blog"
   public version = "v"+VERSION.version;
 
   constructor() { }
