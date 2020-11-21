@@ -1,17 +1,15 @@
-ol, li
-{
+ol,
+li {
   list-style: none;
 }
 
-section
-{
+section {
   width: var(--grid_width);
   margin: auto;
   will-change: transform;
 }
 
-.banner
-{
+.banner {
   width: calc(var(--grid_width) - var(--grid_gutter));
   justify-content: space-between;
   padding-top: 12vw;
@@ -21,40 +19,49 @@ section
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  pointer-events:none;
+  pointer-events: none;
 }
-.banner h1
-{
+.banner h1 {
   font-size: 16.12vw;
   line-height: var(--h1-line_height);
   letter-spacing: var(--h1-letter_spacing);
   text-transform: uppercase;
-  margin-left: -.08em;
+  margin-left: -0.08em;
   pointer-events: none;
   margin: 0px;
 }
 
-.row
-{
+.row {
   margin-top: 11.11111vw;
   margin-bottom: 6.94444vw;
   display: flex;
   width: var(--grid_width);
 }
-.row app-post-card
-{
+.row app-post-card {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-end;
-  width: calc(100%/var(--grid_columns) * 12 - var(--grid_gutter));
+  width: calc(100% / var(--grid_columns) * 12 - var(--grid_gutter));
   margin-left: calc(var(--grid_gutter) * 0.5);
-  margin-right:calc(var(--grid_gutter) * 0.5)
+  margin-right: calc(var(--grid_gutter) * 0.5);
 }
 
-app-post-card
-{
+app-post-card {
   cursor: pointer;
   outline: none;
   border: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .row app-post-card {
+    width: calc(100% / var(--grid_columns) * 12 - var(--grid_gutter) * 0.5);
+    margin-left: calc(var(--grid_gutter) * 0.5);
+    padding-right: calc(var(--grid_gutter) * 0.5);
+    margin-bottom: 80px;
+  }
 }

@@ -26,7 +26,6 @@ nav .header
 }
 nav .header li
 {
-  display: inline-block;
   font-size: 30px;
   line-height: var(--paragraph-line_height);
   letter-spacing: var(--paragraph-letter_spacing);
@@ -45,4 +44,10 @@ nav .header li
 .ne-logo
 {
   display: block;
+}
+
+@media only screen and (max-width: 767px) {
+  .date {
+    display: none;
+  }
 }
