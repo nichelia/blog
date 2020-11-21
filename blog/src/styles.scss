@@ -16,9 +16,18 @@ body
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+*
+{
+  user-select: none;
+}
 *, *:before, *:after
 {
   box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p
+{
+  user-select: auto;
 }
 
 $theme-primary: mat-palette($mat-indigo);
@@ -38,6 +47,12 @@ $dark-theme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn
 
   background-color: var(--off-black);
   color: var(--off-white);
+
+  * ::selection
+  {
+    background: var(--white);
+    color: #000
+  }
 
   .mat-expansion-panel
   {
@@ -81,6 +96,12 @@ $dark-theme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn
 
   background-color: var(--off-white);
   color: var(--off-black);
+
+  * ::selection
+  {
+    background: var(--black);
+    color: #fff
+  }
 
   .mat-toolbar.mat-primary
   {

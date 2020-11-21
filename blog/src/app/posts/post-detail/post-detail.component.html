@@ -1,0 +1,17 @@
+<app-nav></app-nav>
+
+<ng-container *ngIf="post">
+  <header>
+    <h2>{{ post.title }}</h2>
+  </header>
+
+  <div class="container" *ngIf="post.contentUrl">
+    <div class="content">
+      <app-scrollspy-nav-layout [headings]="headings">
+        <markdown emoji src="{{ post.contentUrl }}" (load)="onLoad()"></markdown>
+      </app-scrollspy-nav-layout>
+    </div>
+  </div>
+</ng-container>
+
+<app-footer></app-footer>

@@ -1,0 +1,46 @@
+ol, li
+{
+  list-style: none;
+}
+
+nav
+{
+  mix-blend-mode: difference;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  pointer-events: none;
+  max-width: 1920px;
+}
+nav .header
+{
+  mix-blend-mode: difference;
+  width: var(--grid_width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.43056vw;
+  padding: 0 calc(var(--grid_gutter)/2);
+  display: flex;
+  justify-content: space-between;
+  color: var(--off-white);
+}
+nav .header li
+{
+  display: inline-block;
+  font-size: 30px;
+  line-height: var(--paragraph-line_height);
+  letter-spacing: var(--paragraph-letter_spacing);
+  pointer-events: auto;
+}
+
+.blog-logo
+{
+  width: 42px;
+  height: 42px;
+}
+
+.ne-logo
+{
+  width: 42px;
+  height: 42px;
+}
