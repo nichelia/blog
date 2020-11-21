@@ -31,4 +31,11 @@ h2
 .content
 {
   margin-left: calc(var(--grid_gutter)*0.5);
+  width: calc(100%/var(--grid_columns)*6 - var(--grid_gutter)*0.5);
+  padding-right: calc(var(--grid_gutter)*0.5);
+}
+
+app-scrollspy-nav-layout
+{
+  margin-top: 4.16667vw;
 }
