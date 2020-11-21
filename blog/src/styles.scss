@@ -90,6 +90,11 @@ $dark-theme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn
   {
     fill: var(--off-white);
   }
+
+  .post-list .post:before
+  {
+    background: var(--off-white);
+  }
 }
 
 .color-scheme-light
@@ -133,6 +138,11 @@ $dark-theme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn
   .logo
   {
     fill: var(--off-white);
+  }
+
+  .post-list .post:before
+  {
+    background: var(--off-black);
   }
 }
 
