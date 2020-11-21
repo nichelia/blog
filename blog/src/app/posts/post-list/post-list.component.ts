@@ -11,23 +11,17 @@ import { Post } from '../post'
 })
 export class PostListComponent implements OnInit {
   posts: Observable<Post[]>
+  noMorePosts: Observable<boolean>;
 
   constructor(private paginationService: PaginationService) {}
 
   ngOnInit() {
-    if (this.paginationService.data)
+    if (!this.paginationService.data)
     {
-      this.posts = this.paginationService.data;
+      this.paginationService.init('posts', 'datePublished');
     }
-    else
-    {
-      this.paginationService.init('posts', 'datePublished', {
-        reverse: true,
-        prepend: false,
-        limit: 5,
-      });
-      this.posts = this.paginationService.data;
-    }
+    this.posts = this.paginationService.data;
+    this.noMorePosts = this.paginationService.done;
   }
 
   loadMorePosts() {

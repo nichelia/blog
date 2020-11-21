@@ -15,18 +15,10 @@ export class PostFrontpageComponent implements OnInit {
   constructor(private paginationService: PaginationService) {}
 
   ngOnInit() {
-    if (this.paginationService.data)
+    if (!this.paginationService.data)
     {
-      this.posts = this.paginationService.data;
+      this.paginationService.init('posts', 'datePublished');
     }
-    else
-    {
-      this.paginationService.init('posts', 'datePublished', {
-        reverse: true,
-        prepend: false,
-        limit: 13,
-      });
-      this.posts = this.paginationService.data;
-    }
+    this.posts = this.paginationService.data;
   }
 }
