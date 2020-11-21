@@ -14,6 +14,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { PostFrontpageComponent } from './post-frontpage/post-frontpage.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { PostListItemComponent } from './post-list-item/post-list-item.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PostListComponent } from './post-list/post-list.component';
     PostCardComponent,
     PostFrontpageComponent,
     PostListComponent,
+    PostListItemComponent,
   ],
   imports: [
     FooterModule,

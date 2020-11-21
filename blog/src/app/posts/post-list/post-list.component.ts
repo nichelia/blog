@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs';
 
-import { PostService } from '../post.service'
+import { PaginationService } from '@shared/pagination/pagination.service';
 import { Post } from '../post'
 
 @Component({
@@ -11,14 +11,27 @@ import { Post } from '../post'
 })
 export class PostListComponent implements OnInit {
   posts: Observable<Post[]>
-  constructor(private postService: PostService) {}
+
+  constructor(private paginationService: PaginationService) {}
 
   ngOnInit() {
-    this.posts = this.postService.getPosts()
+    if (this.paginationService.data)
+    {
+      this.posts = this.paginationService.data;
+    }
+    else
+    {
+      this.paginationService.init('posts', 'datePublished', {
+        reverse: true,
+        prepend: false,
+        limit: 5,
+      });
+      this.posts = this.paginationService.data;
+    }
   }
 
-  delete(id: string) {
-    this.postService.delete(id)
+  loadMorePosts() {
+    this.paginationService.more();
   }
 
 }

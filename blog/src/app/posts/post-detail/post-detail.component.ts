@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core'
-import { Router, ActivatedRoute } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 
 import { PostService } from '../post.service'
 import { Post } from '../post'
@@ -17,7 +17,6 @@ export class PostDetailComponent implements OnInit
   constructor(
     private elementRef: ElementRef<HTMLElement>,
     private route: ActivatedRoute,
-    private router: Router,
     private postService: PostService
   ) {}
 

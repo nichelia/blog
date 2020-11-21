@@ -1,0 +1,80 @@
+.wrapper
+{
+  font-size: var(--paragraph);
+  line-height: var(--paragraph-line_height);
+  letter-spacing: var(--paragraph-letter_spacing);
+  font-size: inherit;
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+figure {
+  margin: 0;
+  width: calc(100% / var(--grid_columns) * 2 - var(--grid_gutter) * 0.5);
+  margin-left: calc(var(--grid_gutter) * 0.5);
+  padding-right: calc(var(--grid_gutter) * 0.5);
+}
+
+.media {
+  padding-top: 100%!important;
+  overflow: hidden;
+  position: relative;
+}
+.media img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  outline: 1px solid transparent;
+  display: block;
+  top: 0;
+  left: 0;
+}
+.media .placeholder
+{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  transition: opacity .5s ease;
+  transition-delay: .3s;
+  will-change: opacity;
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+  padding-top: 100%!important;
+  background: var(--off-black);
+}
+.media [lazy=loaded]+.placeholder
+{
+  opacity: 0;
+}
+
+.details
+{
+  width: calc(100%/var(--grid_columns)*4 - var(--grid_gutter)*0.5);
+  margin-left: calc(var(--grid_gutter)*0.5);
+  padding-right: calc(var(--grid_gutter)*0.5);
+}
+.details span:first-of-type {
+  width: 100%;
+  font-size: inherit;
+  display: inline-block;
+  line-height: var(--span-line_height);
+  letter-spacing: var(--span-letter_spacing);
+}
+.details span:nth-of-type(2) {
+  width: 100%;
+  font-size: 22px;
+  line-height: 1.2;
+  display: inline-block;
+  letter-spacing: var(--span-letter_spacing);
+}
