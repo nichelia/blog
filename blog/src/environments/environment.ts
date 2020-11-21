@@ -22,7 +22,7 @@ export function firebaseAppNameFactory() {
 
 export const authRoute = 'auth';
 export const unauthorisedRoute = '403';
-export const authorisedRoute = 'home';
+export const authorisedRoute = 'admin';
 
 /*
  * For easier debugging in development mode, you can import the following file

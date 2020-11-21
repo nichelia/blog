@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { PostsModule } from './posts/posts.module'
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
 import { MenuComponent } from './menu/menu.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -34,7 +33,6 @@ export function markedOptionsFactory(anchorService: AnchorService): MarkedOption
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     InfoComponent,
     MenuComponent,
     NotFoundComponent,
