@@ -14,7 +14,7 @@
 </section>
 
 <section>
-  <button mat-button (click)="loadMorePosts()" [disabled]="noMorePosts | async">Load More</button>
+  <button mat-button (click)="loadMorePosts()" [disabled]="(noMorePosts | async) || (loadingPosts | async)">Load More</button>
 </section>
 
 <app-footer></app-footer>

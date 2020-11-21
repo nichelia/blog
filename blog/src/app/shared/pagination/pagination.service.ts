@@ -10,6 +10,7 @@ import { tap, scan, take } from 'rxjs/operators';
 interface QueryConfig {
   path: string; // path to collection
   field: string; // field to orderBy
+  initialFetch?: number; // limit per query
   limit?: number; // limit per query
   reverse?: boolean; // reverse order?
   prepend?: boolean; // prepend to source?
@@ -35,19 +36,19 @@ export class PaginationService {
     this.query = {
       path,
       field,
-      limit: 13,
+      initialFetch: 13,
+      limit: 5,
       reverse: true,
       prepend: false,
       ...opts,
     };
 
-    const first = this.afs.collection(this.query.path, (ref) => {
-      return ref
-        .orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
-        .limit(this.query.limit);
-    });
+    const initialQuery = this.afs.collection(this.query.path, (ref) =>
+      ref.orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
+        .limit(this.query.initialFetch)
+    );
 
-    this.mapAndUpdate(first);
+    this.mapAndUpdate(initialQuery);
 
     // Create the observable array for consumption in components
     this.data = this._data.asObservable().pipe(scan((acc, val) => {
@@ -59,13 +60,19 @@ export class PaginationService {
   more() {
     const cursor = this.getCursor();
 
-    const more = this.afs.collection(this.query.path, (ref) => {
-      return ref
-        .orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
+    const moreQuery = this.afs.collection(this.query.path, (ref) =>
+      ref.orderBy(this.query.field, this.query.reverse ? 'desc' : 'asc')
         .limit(this.query.limit)
-        .startAfter(cursor);
-    });
-    this.mapAndUpdate(more);
+        .startAfter(cursor)
+    );
+    this.mapAndUpdate(moreQuery);
+  }
+
+  // Reset the page
+  reset() {
+    this._data.next([]);
+    this._done.next(false);
+    this._loading.next(false);
   }
 
   // Determines the doc snapshot to paginate query
@@ -80,16 +87,17 @@ export class PaginationService {
   }
 
   // Maps the snapshot to usable format the updates source
-  private mapAndUpdate(col: AngularFirestoreCollection<any>) {
+  private mapAndUpdate(fsCollection: AngularFirestoreCollection<any>) {
+    // If loading or no more data, return
     if (this._done.value || this._loading.value) {
       return;
     }
 
-    // loading
+    // Set loading to true, data incoming...
     this._loading.next(true);
 
     // Map snapshot with doc ref (needed for cursor)
-    return col
+    return fsCollection
       .snapshotChanges()
       .pipe(tap((arr) => {
         let values = arr.map((snap) => {
@@ -97,26 +105,19 @@ export class PaginationService {
           const doc = snap.payload.doc;
           return { ...data, doc };
         });
-
-        // If prepending, reverse array
+        // Reverse array if prepend option is on
         values = this.query.prepend ? values.reverse() : values;
 
-        // update source with new values, done loading
+        // Update source with new data, loading has now finished
         this._data.next(values);
         this._loading.next(false);
 
-        // no more values, mark done
+        // Mark done if no more data available
         if (!values.length) {
           this._done.next(true);
         }
       }))
       .pipe(take(1))
       .subscribe();
-  }
-
-  // Reset the page
-  reset() {
-    this._data.next([]);
-    this._done.next(false);
   }
 }
