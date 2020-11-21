@@ -14,7 +14,7 @@ section
 {
   width: calc(var(--grid_width) - var(--grid_gutter));
   justify-content: space-between;
-  padding-top: 6.94444vw;
+  padding-top: 12vw;
   padding-bottom: 1.80556vw;
   text-align: center;
   -webkit-user-select: none;

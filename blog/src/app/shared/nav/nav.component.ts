@@ -1,42 +1,39 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { DatePipe } from '@angular/common'
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
-  providers:[DatePipe]
+  providers: [DatePipe],
 })
-export class NavComponent implements OnInit, AfterViewInit
-{
-  today = "";
+export class NavComponent implements OnInit, AfterViewInit {
+  @Input() showDate: boolean;
+  @Input() isSticky: boolean;
+
+  today = '';
   private animationRequest;
 
-  constructor(private datepipe: DatePipe) { }
+  constructor(private datepipe: DatePipe) {}
 
-  ngOnInit(): void
-  {
+  ngOnInit(): void {
     this.setToday();
   }
 
-  ngAfterViewInit(): void
-  {
+  ngAfterViewInit(): void {
     this.animate();
   }
 
-  ngOnDestroy(): void
-  {
+  ngOnDestroy(): void {
     cancelAnimationFrame(this.animationRequest);
   }
 
-  private animate()
-  {
+  private animate() {
     this.setToday();
     this.animationRequest = requestAnimationFrame(this.animate.bind(this));
   }
 
-  setToday()
-  {
+  setToday() {
     let datetime = new Date();
     this.today = this.datepipe.transform(datetime, 'EEEE, MMMM dd, yyyy');
   }
