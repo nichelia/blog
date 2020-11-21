@@ -25,9 +25,11 @@ body
   box-sizing: inherit;
 }
 
-h1, h2, h3, h4, h5, h6, p
-{
-  user-select: auto;
+markdown {
+  > h1, h2, h3, h4, h5, h6, p, code, a, th, td
+  {
+    user-select: auto;
+  }
 }
 
 $theme-primary: mat-palette($mat-indigo);
