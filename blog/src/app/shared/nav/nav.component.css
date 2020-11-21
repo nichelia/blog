@@ -33,14 +33,16 @@ nav .header li
   pointer-events: auto;
 }
 
-.blog-logo
+.logo
 {
   width: 42px;
   height: 42px;
+  cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 .ne-logo
 {
-  width: 42px;
-  height: 42px;
+  display: block;
 }
