@@ -10,7 +10,7 @@ const file = resolve(__dirname, '..', 'src', 'environments', 'version.ts');
 writeFileSync(file,
 `// IMPORTANT: Auto-generated file.
 /* tslint:disable */
-export const VERSION = ${JSON.stringify(data, null, 4)};
+export const VERSION = ${JSON.stringify(data, null, 2)};
 /* tslint:enable */
 `, { encoding: 'utf-8' });
 
