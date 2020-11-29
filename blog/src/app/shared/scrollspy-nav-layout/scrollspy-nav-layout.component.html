@@ -1,0 +1,9 @@
+  <button class="scrollup-button--fixed" mat-stroked-button fxHide.gt-sm (click)="onScrollUp()" *ngIf="showScrollUpButton" [@zoomAnimation]>
+    Top
+  </button>
+<div class="sticky" fxLayout="column" fxFlex="1 1 180px" fxFlexAlign="flex-start" fxHide.lt-md>
+  <app-scrollspy-nav [headings]="headings"></app-scrollspy-nav>
+  <button class="scrollup-button" mat-stroked-button (click)="onScrollUp()" *ngIf="showScrollUpButton" [@zoomAnimation]>
+    Top
+  </button>
+</div>

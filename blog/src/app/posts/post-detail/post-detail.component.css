@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+header, .container
+{
+  width: var(--grid_width);
+  margin-left: auto;
+  margin-right:auto;
+}
+
+header
+{
+  padding-top: 6.94444vw;
+  margin-bottom:6.94444vw;
+}
+header h2
+{
+  width: calc(100%/var(--grid_columns) * 6 - var(--grid_gutter) * 0.5);
+  margin-left: calc(var(--grid_gutter) * 0.5);
+  padding-right:calc(var(--grid_gutter) * 0.5);
+}
+
+h2
+{
+  font-size: var(--h2);
+  line-height: var(--h2-line_height);
+  letter-spacing: var(--h2-letter_spacing);
+}
+
+.content
+{
+  margin-left: calc(var(--grid_gutter)*0.5);
+  width: calc(100%/var(--grid_columns)*6 - var(--grid_gutter)*0.5);
+  padding-right: calc(var(--grid_gutter)*0.5);
+}
+
+app-scrollspy-nav-layout
+{
+  margin-top: 4.16667vw;
+}

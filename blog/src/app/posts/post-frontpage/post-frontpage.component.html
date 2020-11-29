@@ -1,0 +1,46 @@
+<app-nav [showDate]="true" [isSticky]="true"></app-nav>
+
+<section class="banner border">
+  <h1>Blog</h1>
+</section>
+
+<!-- 3 item row -->
+<section class="row">
+  <ng-container *ngFor="let post of posts | async | slice :0:3">
+    <app-post-card [title]="post.title" [heroImageUrl]="post.heroImageUrl" [routerLink]="['/post', post.id]"></app-post-card>
+  </ng-container>
+</section>
+
+<!-- 2 item row -->
+<section class="row">
+  <ng-container *ngFor="let post of posts | async | slice :3:5">
+    <app-post-card [title]="post.title" [heroImageUrl]="post.heroImageUrl" [routerLink]="['/post', post.id]"></app-post-card>
+  </ng-container>
+</section>
+
+<!-- 3 item row -->
+<section class="row">
+  <ng-container *ngFor="let post of posts | async | slice :5:8">
+    <app-post-card [title]="post.title" [heroImageUrl]="post.heroImageUrl" [routerLink]="['/post', post.id]"></app-post-card>
+  </ng-container>
+</section>
+
+<!-- 4 item row -->
+<section class="row">
+  <ng-container *ngFor="let post of posts | async | slice :8:12">
+    <app-post-card [title]="post.title" [heroImageUrl]="post.heroImageUrl" [routerLink]="['/post', post.id]"></app-post-card>
+  </ng-container>
+</section>
+
+<!-- 1 item row -->
+<section class="row">
+  <ng-container *ngFor="let post of posts | async | slice :12:13">
+    <app-post-card [title]="post.title" [heroImageUrl]="post.heroImageUrl" [routerLink]="['/post', post.id]"></app-post-card>
+  </ng-container>
+</section>
+
+<section>
+  <button mat-button routerLink="/posts">See all posts</button>
+</section>
+
+<app-footer></app-footer>

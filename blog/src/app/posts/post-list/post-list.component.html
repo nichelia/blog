@@ -1,0 +1,20 @@
+<app-nav></app-nav>
+
+<section class="banner">
+  <h2>All Posts</h2>
+</section>
+
+<!-- 3 item row -->
+<section>
+  <ul class="post-list">
+    <li class="post" *ngFor="let post of posts | async">
+      <app-post-list-item [title]="post.title" [heroImageUrl]="post.heroImageUrl" [datePublished]="post.datePublished.seconds * 1000 | date" [routerLink]="['/post', post.id]"></app-post-list-item>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <button mat-button (click)="loadMorePosts()" [disabled]="(noMorePosts | async) || (loadingPosts | async)">Load More</button>
+</section>
+
+<app-footer></app-footer>

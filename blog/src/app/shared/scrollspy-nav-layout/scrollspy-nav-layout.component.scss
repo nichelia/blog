@@ -1,0 +1,21 @@
+.mat-fab,
+.mat-mini-fab {
+  img {
+    margin-bottom: 2px;
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 80px;
+}
+
+.scrollup-button {
+  margin:14px;
+
+  &--fixed {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+  }
+}

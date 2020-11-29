@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "nichelia": {
+      "hosting": {
+        "blog": [
+          "nichelia"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "nichelia-blog"
+  }
+}
