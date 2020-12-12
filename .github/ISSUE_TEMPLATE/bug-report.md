@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug in the E6C tool
+about: Report a bug in the blog platform
 title: "[BUG]"
 labels: bug
 assignees: ''
@@ -50,7 +50,7 @@ You can read more about issue submission guidelines here: https://repl.it/@niche
 
 ## 🧩 Your Environment
 
-**E6C Version:**
+**Blog Version:**
 <pre><code>
 <!-- run `poetry version` and paste output below -->
 <!-- ✍️-->

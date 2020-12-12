@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest a feature for E6C tool
+about: Suggest a feature for blog platform
 title: "[FEATURE]"
 labels: enhancement
 assignees: ''
