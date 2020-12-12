@@ -8,3 +8,10 @@ h6
   display: block;
   text-align: center;
 }
+.settings
+{
+  width: var(--grid_width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 calc(var(--grid_gutter)/2);
+}
