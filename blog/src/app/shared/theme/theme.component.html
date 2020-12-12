@@ -1,0 +1,13 @@
+<ng-container *ngIf="type == 'list'">
+  <mat-selection-list #themes [multiple]="false" (selectionChange)="onThemeChange($event)">
+    <mat-list-option *ngFor="let option of themeOptions" [value]="option">
+      {{ option }}
+    </mat-list-option>
+  </mat-selection-list>
+</ng-container>
+
+<ng-container *ngIf="type == 'button'">
+  <button mat-icon-button (click)="onThemeChange()" aria-label="Change theme">
+    <mat-icon>{{ selectedIcon }}</mat-icon>
+  </button>
+</ng-container>

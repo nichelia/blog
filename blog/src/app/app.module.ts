@@ -14,9 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PostsModule } from './posts/posts.module'
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ThemeComponent } from './theme/theme.component';
 
 export function markedOptionsFactory(anchorService: AnchorService): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -32,9 +30,7 @@ export function markedOptionsFactory(anchorService: AnchorService): MarkedOption
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
     NotFoundComponent,
-    ThemeComponent,
   ],
   imports: [
     BrowserModule,
