@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { ColourSchemeService } from "./theme/colour-scheme.service";
-import { authRoute, unauthorisedRoute, authorisedRoute } from '../environments/environment';
+import { ColourSchemeService } from "@shared/theme/colour-scheme.service";
 import { AnchorService } from '@shared/anchor/anchor.service';
+import { authRoute, unauthorisedRoute, authorisedRoute } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
